@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Bambu Bootstrap &mdash; Bambu Bootstrap 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Bambu Bootstrap 1.0 documentation" href="#" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="#">Bambu Bootstrap 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="bambu-bootstrap">
+<h1>Bambu Bootstrap<a class="headerlink" href="#bambu-bootstrap" title="Permalink to this headline">¶</a></h1>
+<p>Frontend scaffolding thanks to Twitter&#8217;s
+<a class="reference external" href="http://twitter.github.com/bootstrap/">Bootstrap</a> framework.</p>
+<div class="section" id="about-bambu-bootstrap">
+<h2>About Bambu Bootstrap<a class="headerlink" href="#about-bambu-bootstrap" title="Permalink to this headline">¶</a></h2>
+<p>Bambu Bootstrap provides utility templates, tags and filters that
+leverage Bootstrap&#8217;s layout and functionality. It also uses
+Font-Awesome&#8217;s naming conventions.</p>
+</div>
+<div class="section" id="static-files">
+<h2>Static files<a class="headerlink" href="#static-files" title="Permalink to this headline">¶</a></h2>
+<p>Previous versions of Bambu Bootstrap (when it was part of a single repo)
+included copies of jQuery, Bootstrap and Font-Awesome in its static
+directory.</p>
+<p>The new approach is to use Bower for static file management, so you&#8217;ll
+need to install and configure that to use this app.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Install the package (including
+<a class="reference external" href="https://github.com/nvbn/django-bower">django-bower</a>) via Pip:</p>
+<div class="highlight-python"><div class="highlight"><pre>pip install bambu-bootstrap
+</pre></div>
+</div>
+<p>Add it and <tt class="docutils literal"><span class="pre">djangobower</span></tt> to your <tt class="docutils literal"><span class="pre">INSTALLED_APPS</span></tt> list (see the
+<a class="reference external" href="http://django-bower.readthedocs.org/en/latest/">django-bower
+documentation</a> for
+instructions on implementing Bower):</p>
+<div class="highlight-python"><div class="highlight"><pre>INSTALLED_APPS = (
+    ...
+    &#39;djangobower&#39;,
+    &#39;bambu.bootstrap&#39;
+)
+</pre></div>
+</div>
+<p>Add <tt class="docutils literal"><span class="pre">bootstrap</span></tt> and <tt class="docutils literal"><span class="pre">fontawesome</span></tt> to your <tt class="docutils literal"><span class="pre">BOWER_INSTALLED_APPS</span></tt>
+list:</p>
+<div class="highlight-python"><div class="highlight"><pre>BOWER_INSTALLED_APPS = (
+    ...
+    &#39;bootstrap&#39;,
+    &#39;fontawesome&#39;
+)
+</pre></div>
+</div>
+<p>Then install the frontend packages to your Bower components directory:</p>
+<div class="highlight-python"><div class="highlight"><pre>python manage.py bower install
+</pre></div>
+</div>
+</div>
+<div class="section" id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>Bambu Bootstrap contains a template at <tt class="docutils literal"><span class="pre">bootstrap/base.html</span></tt> which
+will get you up and running. It includes everything you need to create a
+base template. Either extend that template in your own <tt class="docutils literal"><span class="pre">base.html</span></tt>
+file, override it or strip it for parts.</p>
+</div>
+<div class="section" id="full-documentation">
+<h2>Full documentation<a class="headerlink" href="#full-documentation" title="Permalink to this headline">¶</a></h2>
+<p>Full documentation can be found at
+<a class="reference external" href="http://bambu-bootstrap.readthedocs.org/">ReadTheDocs</a>.</p>
+</div>
+<div class="section" id="questions-or-suggestions">
+<h2>Questions or suggestions?<a class="headerlink" href="#questions-or-suggestions" title="Permalink to this headline">¶</a></h2>
+<p>Find me on Twitter (&#64;iamsteadman) or <a class="reference external" href="http://steadman.io/">visit my blog</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Bambu Bootstrap</a><ul>
+<li><a class="reference internal" href="#about-bambu-bootstrap">About Bambu Bootstrap</a></li>
+<li><a class="reference internal" href="#static-files">Static files</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#full-documentation">Full documentation</a></li>
+<li><a class="reference internal" href="#questions-or-suggestions">Questions or suggestions?</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="#">Bambu Bootstrap 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Steadman.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

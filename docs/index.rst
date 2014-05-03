@@ -16,6 +16,15 @@ with the front-end scaffolding. Bambu Bootstrap provides a base template
 along with a set of useful tags and filters that make building web apps
 using this framework easier.
 
+About Bambu Tools 2.0
+---------------------
+
+This is part of a toolset called Bambu Tools. It's being moved from a
+namespace of ``bambu`` to its own 'root-level' package, along with all
+the other tools in the set. If you're upgrading from a version prior to
+2.0, please make sure to update your code to use ``bambu_bootstrap``
+rather than ``bambu.bootstrap``.
+
 Installation
 ------------
 

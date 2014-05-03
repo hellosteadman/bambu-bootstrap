@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Decorators &mdash; Bambu Bootstrap 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Bambu Bootstrap 2.0 documentation" href="index.html" />
+    <link rel="next" title="Template tags" href="templatetags.html" />
+    <link rel="prev" title="Context processor" href="context_processor.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="templatetags.html" title="Template tags"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="context_processor.html" title="Context processor"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Bambu Bootstrap 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-bambu_bootstrap.decorators">
+<span id="decorators"></span><h1>Decorators<a class="headerlink" href="#module-bambu_bootstrap.decorators" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bambu_bootstrap.decorators.body_classes">
+<tt class="descclassname">bambu_bootstrap.decorators.</tt><tt class="descname">body_classes</tt><big>(</big><em>func</em>, <em>*classes</em><big>)</big><a class="headerlink" href="#bambu_bootstrap.decorators.body_classes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorates a view by adding a list of class names to the <tt class="docutils literal"><span class="pre">&lt;body&gt;</span></tt> tag. The prefered way to use this
+is to pass in a view that returns a <cite>TemplateResponse</cite> object, so that the decorator can modify the
+context variable dictionary, adding a <cite>body_classes</cite> list, or extending it if it already exists.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>func</strong> &#8211; A callable that returns an <tt class="docutils literal"><span class="pre">HttpResponse</span></tt> or <tt class="docutils literal"><span class="pre">TemplateResponse</span></tt> object</li>
+<li><strong>classes</strong> &#8211; A list of classes to add to the <tt class="docutils literal"><span class="pre">&lt;body&gt;</span></tt> tag</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Use this decorator in your URLconf like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">bambu_bootstrap.decorators</span> <span class="kn">import</span> <span class="n">body_classes</span>
+<span class="kn">from</span> <span class="nn">testproject.myapp</span> <span class="kn">import</span> <span class="n">views</span>
+<span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^$&#39;</span><span class="p">,</span> <span class="n">body_classes</span><span class="p">(</span><span class="n">views</span><span class="o">.</span><span class="n">home</span><span class="p">,</span> <span class="s">&#39;homepage&#39;</span><span class="p">,</span> <span class="s">&#39;index&#39;</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="context_processor.html"
+                        title="previous chapter">Context processor</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="templatetags.html"
+                        title="next chapter">Template tags</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/decorators.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="templatetags.html" title="Template tags"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="context_processor.html" title="Context processor"
+             >previous</a> |</li>
+        <li><a href="index.html">Bambu Bootstrap 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Steadman.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'bootstrap/base.html' %}
+{% load icons staticfiles %}
+
+{% block extra_head %}
+    {{ block.super }}
+    <link href="{% static 'bootstrap-datepicker/css/datepicker3.css' %}" rel="stylesheet" media="screen" />
+{% endblock extra_head %}
+
+{% block page_header %}
+    <h1>This is a test</h1>
+    <p>Nam et enim ligula. Nulla venenatis gravida sapien ac consequat. Nunc adipiscing placerat urna quis fermentum.</p>
+{% endblock page_header %}
+
+{% block form_content %}
+    <h2>{% icon 'file-text' %} This is content</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt risus vitae fringilla eleifend. Maecenas imperdiet orci quam, eu convallis lectus tincidunt non. Phasellus at cursus augue.</p>
+    <p>Morbi convallis lacus tincidunt nibh vehicula convallis. Nulla egestas dolor non magna porttitor dignissim. Mauris ultricies ante at dolor pretium, sit amet luctus mi ultrices. Aliquam eu vestibulum ligula.</p>
+    <p>Vestibulum vulputate metus nec neque viverra euismod. Nulla facilisi. Morbi ultrices mauris vitae massa feugiat consequat. Suspendisse vulputate adipiscing sagittis. Vivamus vel aliquet odio, non suscipit risus.</p>
+    
+    <h3>Here&rsquo;s a form</h3>
+    <form method="post" class="form-horizontal">
+        {% include 'form.inc.html' with style='horizontal' %}
+        <div class="col-sm-8 col-sm-offset-4">
+            <button type="submitt" class="btn btn-primary">Submit</button> to test django.contrib.messages support
+        </div>
+        {% csrf_token %}
+    </form>
+{% endblock form_content %}
+
+{% block sidebar %}
+    <h2>{% icon 'twitter' %} This is a sidebar</h2>
+    <a class="twitter-timeline" href="https://twitter.com/iamsteadman" data-widget-id="332960981414199296">Tweets by @iamsteadman</a>
+{% endblock sidebar %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <script src="{% static 'bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+{% endblock javascript %}

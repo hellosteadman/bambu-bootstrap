@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Bambu Bootstrap &mdash; Bambu Bootstrap 1.0 documentation</title>
+    <title>Bambu Bootstrap &mdash; Bambu Bootstrap 2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.0',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Bambu Bootstrap 1.0 documentation" href="#" /> 
+    <link rel="top" title="Bambu Bootstrap 2.0 documentation" href="#" />
+    <link rel="next" title="Templates" href="templates.html" /> 
   </head>
   <body>
     <div class="related">
@@ -32,7 +33,13 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li><a href="#">Bambu Bootstrap 1.0 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="templates.html" title="Templates"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">Bambu Bootstrap 2.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -43,70 +50,81 @@
             
   <div class="section" id="bambu-bootstrap">
 <h1>Bambu Bootstrap<a class="headerlink" href="#bambu-bootstrap" title="Permalink to this headline">¶</a></h1>
-<p>Frontend scaffolding thanks to Twitter&#8217;s
-<a class="reference external" href="http://twitter.github.com/bootstrap/">Bootstrap</a> framework.</p>
+<p>Use Twitter&#8217;s <a class="reference external" href="http://twitter.github.com/bootstrap/">Bootstrap</a> CSS
+framework to build your app. All the views Bambu uses all extend a base
+template which you create, that can be based on a skeleton Bootstrap
+template. Shortcut tags let you easily add breadcrumb trails and icons
+to your apps.</p>
 <div class="section" id="about-bambu-bootstrap">
 <h2>About Bambu Bootstrap<a class="headerlink" href="#about-bambu-bootstrap" title="Permalink to this headline">¶</a></h2>
-<p>Bambu Bootstrap provides utility templates, tags and filters that
-leverage Bootstrap&#8217;s layout and functionality. It also uses
-Font-Awesome&#8217;s naming conventions.</p>
-</div>
-<div class="section" id="static-files">
-<h2>Static files<a class="headerlink" href="#static-files" title="Permalink to this headline">¶</a></h2>
-<p>Previous versions of Bambu Bootstrap (when it was part of a single repo)
-included copies of jQuery, Bootstrap and Font-Awesome in its static
-directory.</p>
-<p>The new approach is to use Bower for static file management, so you&#8217;ll
-need to install and configure that to use this app.</p>
+<p>Bambu Tools is a set of reusable Django apps and utility packages that
+help prototyping and building web apps easier. To a degree, this starts
+with the front-end scaffolding. Bambu Bootstrap provides a base template
+along with a set of useful tags and filters that make building web apps
+using this framework easier.</p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>Install the package (including
-<a class="reference external" href="https://github.com/nvbn/django-bower">django-bower</a>) via Pip:</p>
+<p>Install the package via Pip:</p>
 <div class="highlight-python"><div class="highlight"><pre>pip install bambu-bootstrap
 </pre></div>
 </div>
-<p>Add it and <tt class="docutils literal"><span class="pre">djangobower</span></tt> to your <tt class="docutils literal"><span class="pre">INSTALLED_APPS</span></tt> list (see the
+<p>Add it to your <tt class="docutils literal"><span class="pre">INSTALLED_APPS</span></tt> list and add Bootstrap and
+Font-Awesome to your <tt class="docutils literal"><span class="pre">BOWER_INSTALLED_APPS</span></tt> list (see the
 <a class="reference external" href="http://django-bower.readthedocs.org/en/latest/">django-bower
-documentation</a> for
-instructions on implementing Bower):</p>
+documentation</a>) for
+details on managing static files through Bower.</p>
 <div class="highlight-python"><div class="highlight"><pre>INSTALLED_APPS = (
     ...
     &#39;djangobower&#39;,
-    &#39;bambu.bootstrap&#39;
+    &#39;bambu_bootstrap&#39;
 )
-</pre></div>
-</div>
-<p>Add <tt class="docutils literal"><span class="pre">bootstrap</span></tt> and <tt class="docutils literal"><span class="pre">fontawesome</span></tt> to your <tt class="docutils literal"><span class="pre">BOWER_INSTALLED_APPS</span></tt>
-list:</p>
-<div class="highlight-python"><div class="highlight"><pre>BOWER_INSTALLED_APPS = (
+
+BOWER_INSTALLED_APPS = (
     ...
     &#39;bootstrap&#39;,
     &#39;fontawesome&#39;
 )
 </pre></div>
 </div>
-<p>Then install the frontend packages to your Bower components directory:</p>
-<div class="highlight-python"><div class="highlight"><pre>python manage.py bower install
-</pre></div>
-</div>
+<p>Remember to run <tt class="docutils literal"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">bower</span> <span class="pre">install</span></tt> and
+<tt class="docutils literal"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">collectstatic</span></tt>.</p>
 </div>
 <div class="section" id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>Bambu Bootstrap contains a template at <tt class="docutils literal"><span class="pre">bootstrap/base.html</span></tt> which
-will get you up and running. It includes everything you need to create a
-base template. Either extend that template in your own <tt class="docutils literal"><span class="pre">base.html</span></tt>
-file, override it or strip it for parts.</p>
-</div>
-<div class="section" id="full-documentation">
-<h2>Full documentation<a class="headerlink" href="#full-documentation" title="Permalink to this headline">¶</a></h2>
-<p>Full documentation can be found at
-<a class="reference external" href="http://bambu-bootstrap.readthedocs.org/">ReadTheDocs</a>.</p>
+<p>Within your project, start with a template called <tt class="docutils literal"><span class="pre">base.html</span></tt>. This
+should extend the Bootstrap base template,, at <tt class="docutils literal"><span class="pre">bootstrap/base.html</span></tt>.</p>
+<p>Use the <tt class="docutils literal"><span class="pre">extra_head</span></tt> block to specify stylesheets or script tags that
+must, by necessity live in the head of your document.</p>
+<p>Use the <tt class="docutils literal"><span class="pre">content</span></tt> block for the main content of your page.</p>
+<p>Use the <tt class="docutils literal"><span class="pre">javascript</span></tt> block to specify JavaScript that can run at the
+very bottom of the page.</p>
 </div>
 <div class="section" id="questions-or-suggestions">
 <h2>Questions or suggestions?<a class="headerlink" href="#questions-or-suggestions" title="Permalink to this headline">¶</a></h2>
 <p>Find me on Twitter (&#64;iamsteadman) or <a class="reference external" href="http://steadman.io/">visit my blog</a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="context_variables.html">Context variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="views.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forms.html">Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fontawesome.html">Font Awesome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="context_processor.html">Context processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorators.html">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templatetags.html">Template tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+</ul>
 </div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
 </div>
 
 
@@ -119,15 +137,17 @@ file, override it or strip it for parts.</p>
   <ul>
 <li><a class="reference internal" href="#">Bambu Bootstrap</a><ul>
 <li><a class="reference internal" href="#about-bambu-bootstrap">About Bambu Bootstrap</a></li>
-<li><a class="reference internal" href="#static-files">Static files</a></li>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
-<li><a class="reference internal" href="#full-documentation">Full documentation</a></li>
 <li><a class="reference internal" href="#questions-or-suggestions">Questions or suggestions?</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 
+  <h4>Next topic</h4>
+  <p class="topless"><a href="templates.html"
+                        title="next chapter">Templates</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/index.txt"
@@ -156,7 +176,13 @@ file, override it or strip it for parts.</p>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li><a href="#">Bambu Bootstrap 1.0 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="templates.html" title="Templates"
+             >next</a> |</li>
+        <li><a href="#">Bambu Bootstrap 2.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

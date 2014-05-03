@@ -1,0 +1,2 @@
+{% load staticfiles %}<script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+<script src="{% if js_url %}{{ js_url }}{% else %}{% static 'bootstrap/dist/js/bootstrap.min.js' %}{% endif %}"></script>

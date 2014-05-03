@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Template tags &mdash; Bambu Bootstrap 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Bambu Bootstrap 2.0 documentation" href="index.html" />
+    <link rel="next" title="Settings" href="settings.html" />
+    <link rel="prev" title="Decorators" href="decorators.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="decorators.html" title="Decorators"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Bambu Bootstrap 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-bambu_bootstrap.templatetags.bootstrap">
+<span id="template-tags"></span><h1>Template tags<a class="headerlink" href="#module-bambu_bootstrap.templatetags.bootstrap" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bambu_bootstrap.templatetags.bootstrap.bootstrap_footer">
+<tt class="descclassname">bambu_bootstrap.templatetags.bootstrap.</tt><tt class="descname">bootstrap_footer</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#bambu_bootstrap.templatetags.bootstrap.bootstrap_footer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders the navbar template (see <a class="reference internal" href="templates.html#templates-misc"><em>Miscellaneous templates</em></a>) for more information</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bambu_bootstrap.templatetags.bootstrap.bootstrap_navbar">
+<tt class="descclassname">bambu_bootstrap.templatetags.bootstrap.</tt><tt class="descname">bootstrap_navbar</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#bambu_bootstrap.templatetags.bootstrap.bootstrap_navbar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders the navbar template (see <a class="reference internal" href="templates.html#templates-navigation"><em>Navigation templates</em></a>) for more information</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bambu_bootstrap.templatetags.bootstrap.bootstrap_scripts">
+<tt class="descclassname">bambu_bootstrap.templatetags.bootstrap.</tt><tt class="descname">bootstrap_scripts</tt><big>(</big><big>)</big><a class="headerlink" href="#bambu_bootstrap.templatetags.bootstrap.bootstrap_scripts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Includes the jQuery and Bootstrap scripts from Bower</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bambu_bootstrap.templatetags.bootstrap.bootstrap_styles">
+<tt class="descclassname">bambu_bootstrap.templatetags.bootstrap.</tt><tt class="descname">bootstrap_styles</tt><big>(</big><big>)</big><a class="headerlink" href="#bambu_bootstrap.templatetags.bootstrap.bootstrap_styles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Includes the Bootstrap styles from Bower</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bambu_bootstrap.templatetags.bootstrap.bootstrap_title">
+<tt class="descclassname">bambu_bootstrap.templatetags.bootstrap.</tt><tt class="descname">bootstrap_title</tt><big>(</big><em>context</em>, <em>separator=' | '</em><big>)</big><a class="headerlink" href="#bambu_bootstrap.templatetags.bootstrap.bootstrap_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders the value of the <tt class="docutils literal"><span class="pre">title_parts</span></tt> context variable (a tuple) into a string, separated by
+a delimiter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>separator</strong> &#8211; The delimiter to use (defaults to a beam character (|))</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bambu_bootstrap.templatetags.bootstrap.breadcrumb_trail">
+<tt class="descclassname">bambu_bootstrap.templatetags.bootstrap.</tt><tt class="descname">breadcrumb_trail</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#bambu_bootstrap.templatetags.bootstrap.breadcrumb_trail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders a two-tuple of page URLs and titles (see the
+<a class="reference internal" href="context_variables.html#context-breadcrumb-trail"><em>breadcrumb_trail</em></a> context variable for more information)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bambu_bootstrap.templatetags.bootstrap.html_attrs">
+<tt class="descclassname">bambu_bootstrap.templatetags.bootstrap.</tt><tt class="descname">html_attrs</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#bambu_bootstrap.templatetags.bootstrap.html_attrs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a <tt class="docutils literal"><span class="pre">no-js</span></tt> class to the <tt class="docutils literal"><span class="pre">&lt;html&gt;</span></tt> tag</p>
+<p>todo: Make this much more flexible</p>
+</dd></dl>
+
+<span class="target" id="module-bambu_bootstrap.templatetags.forms"></span><span class="target" id="module-bambu_bootstrap.templatetags.icons"></span></div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="decorators.html"
+                        title="previous chapter">Decorators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="settings.html"
+                        title="next chapter">Settings</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/templatetags.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="decorators.html" title="Decorators"
+             >previous</a> |</li>
+        <li><a href="index.html">Bambu Bootstrap 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Steadman.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Templates &mdash; Bambu Bootstrap 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Bambu Bootstrap 2.0 documentation" href="index.html" />
+    <link rel="next" title="Context variables" href="context_variables.html" />
+    <link rel="prev" title="Bambu Bootstrap" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="context_variables.html" title="Context variables"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Bambu Bootstrap"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Bambu Bootstrap 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="templates">
+<h1>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h1>
+<p>This is where the main heart of Bambu Bootstrap can be found.</p>
+<div class="section" id="error-pages">
+<span id="templates-errors"></span><h2>Error pages<a class="headerlink" href="#error-pages" title="Permalink to this headline">¶</a></h2>
+<p>These two templates handle Django&#8217;s 404 and 500 error pages in a friendly manner. They&#8217;re meant to be
+copied and messed with, so grab them from the source code and amend them, or just roll your own.</p>
+<div class="section" id="html">
+<h3>404.html<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h3>
+<p>A Bootstrap-themed 404 Not Found page.</p>
+</div>
+<div class="section" id="id1">
+<h3>500.html<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>A Bootstrap-themed 500 Internal Server Error page.</p>
+</div>
+</div>
+<div class="section" id="forms">
+<span id="templates-forms"></span><h2>Forms<a class="headerlink" href="#forms" title="Permalink to this headline">¶</a></h2>
+<p>See the <a class="reference internal" href="forms.html"><em>Forms</em></a> section for more information.</p>
+</div>
+<div class="section" id="field-inc-html">
+<h2>field.inc.html<a class="headerlink" href="#field-inc-html" title="Permalink to this headline">¶</a></h2>
+<p>An individual field row, with error checking and handling of various different styling scenarios.</p>
+</div>
+<div class="section" id="form-inc-html">
+<h2>form.inc.html<a class="headerlink" href="#form-inc-html" title="Permalink to this headline">¶</a></h2>
+<p>A rendered form, using the context variable <tt class="docutils literal"><span class="pre">form</span></tt>. By default the form is rendered in Bootstrap&#8217;s
+&#8216;vertical&#8217; style, but you can use the horizontal style by adding <tt class="docutils literal"><span class="pre">style='horizontal'</span></tt> in your include
+statement.</p>
+<p>Blocks:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">non_field_errors</span></tt>: A list of general form errors, not relating to specific fields, rendered using Bootstrap&#8217;s alert classes.</li>
+<li><tt class="docutils literal"><span class="pre">fields</span></tt>: The list of fields (except for the <tt class="docutils literal"><span class="pre">DELETE</span></tt> field, ie: when used as part of a fieldset). By default, this block is rendered by looping through the visible fields in the form and including the <tt class="docutils literal"><span class="pre">field.inc.html</span></tt> template.</li>
+<li><tt class="docutils literal"><span class="pre">fieldset</span></tt>: Houses the <tt class="docutils literal"><span class="pre">DELETE</span></tt> field for a form within a formset</li>
+<li><tt class="docutils literal"><span class="pre">hidden_fields</span></tt>: The remaining, invisible fields of the form</li>
+</ul>
+</div>
+<div class="section" id="navbar">
+<span id="templates-navigation"></span><h2>Navbar<a class="headerlink" href="#navbar" title="Permalink to this headline">¶</a></h2>
+<p>This is arguably the most involved part of the Bambu Bootstrap template structure. You might want to strip
+much of this out once your app is up and running, to save a little overhead.</p>
+<div class="section" id="bootstrap-navbar-anon-inc-html">
+<h3>bootstrap/navbar-anon.inc.html<a class="headerlink" href="#bootstrap-navbar-anon-inc-html" title="Permalink to this headline">¶</a></h3>
+<p>A horizontal login form. Included in <tt class="docutils literal"><span class="pre">bootstrap/navbar.inc.html</span></tt> for anonymous users.</p>
+</div>
+<div class="section" id="bootstrap-navbar-auth-inc-html">
+<h3>bootstrap/navbar-auth.inc.html<a class="headerlink" href="#bootstrap-navbar-auth-inc-html" title="Permalink to this headline">¶</a></h3>
+<p>Renders a dropdown menu with a logout link. Included in <tt class="docutils literal"><span class="pre">bootstrap/navbar.inc.html</span></tt> for authenticated users.</p>
+</div>
+<div class="section" id="bootstrap-navbar-brand-inc-html">
+<h3>bootstrap/navbar-brand.inc.html<a class="headerlink" href="#bootstrap-navbar-brand-inc-html" title="Permalink to this headline">¶</a></h3>
+<p>Renders the site name with a link to the homepage, with Bootstrap&#8217;s <tt class="docutils literal"><span class="pre">navbar-brand</span></tt> class.</p>
+</div>
+<div class="section" id="bootstrap-navbar-inc-html">
+<h3>bootstrap/navbar.inc.html<a class="headerlink" href="#bootstrap-navbar-inc-html" title="Permalink to this headline">¶</a></h3>
+<p>The main top navigation bar for a site. It includes the templates above (subject to their conditions) and
+<tt class="docutils literal"><span class="pre">menu.inc.html</span></tt>.</p>
+</div>
+<div class="section" id="menu-inc-html">
+<h3>menu.inc.html<a class="headerlink" href="#menu-inc-html" title="Permalink to this headline">¶</a></h3>
+<p>The header menu. Copy this template from the source code or start with the following to add a menu:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;ul class=&quot;nav navbar-nav&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="elements">
+<span id="templates-misc"></span><h2>Elements<a class="headerlink" href="#elements" title="Permalink to this headline">¶</a></h2>
+<p>Here are a few miscellaneous elements</p>
+<div class="section" id="bootstrap-base-inc-html">
+<h3>bootstrap/base.inc.html<a class="headerlink" href="#bootstrap-base-inc-html" title="Permalink to this headline">¶</a></h3>
+<p>The engine room. This template includes the HTML5 doctype and tags. Your own base template should extend
+this one, using blocks to fill in the content.</p>
+<p>Blocks:</p>
+<ul>
+<li><p class="first"><tt class="docutils literal"><span class="pre">title</span></tt>: The title tag for a page (see the <a class="reference internal" href="templatetags.html#bambu_bootstrap.templatetags.bootstrap.bootstrap_title" title="bambu_bootstrap.templatetags.bootstrap.bootstrap_title"><tt class="xref py py-func docutils literal"><span class="pre">bootstrap_title</span></tt></a> template tag for more information)</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">meta_tags</span></tt>: The meta tags for a page</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">extra_head</span></tt>: Where your base template should place its <tt class="docutils literal"><span class="pre">&lt;head&gt;</span></tt> tag content</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">after_header</span></tt>: The first thing displayed after the navigation bar</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">messages</span></tt>: The block that includes the <tt class="docutils literal"><span class="pre">bootstrap/messages.inc.html</span></tt> template</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">breadcrumb_trail</span></tt>: The block that includes the <tt class="docutils literal"><span class="pre">bootstrap/breadcrumb.inc.html</span></tt> template</p>
+</li>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal"><span class="pre">content</span></tt>: Where the main page content lives</dt>
+<dd><ul class="first last simple">
+<li><tt class="docutils literal"><span class="pre">page_header</span></tt>: The content for the Bootstrap <tt class="docutils literal"><span class="pre">.page-header</span></tt> element</li>
+<li><tt class="docutils literal"><span class="pre">form_content</span></tt>: The primary (left-hand) column of content</li>
+<li><tt class="docutils literal"><span class="pre">sidebar</span></tt>: The (right-hand) sidebar</li>
+<li><tt class="docutils literal"><span class="pre">form_footer</span></tt>: The element to display after the form-content and sidebar</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">pre_footer</span></tt>: Appears straight after the main content block</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">footer</span></tt>: Appears inside a <tt class="docutils literal"><span class="pre">&lt;footer&gt;</span></tt> tag, and includes the <tt class="docutils literal"><span class="pre">bootstrap/footer.inc.html</span></tt> template</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">javascript</span></tt>: The area to place all JavaScript content that is safe to include at the bottom of a page</p>
+</li>
+</ul>
+</div>
+<div class="section" id="bootstrap-breadcrumb-inc-html">
+<h3>bootstrap/breadcrumb.inc.html<a class="headerlink" href="#bootstrap-breadcrumb-inc-html" title="Permalink to this headline">¶</a></h3>
+<p>A breadcrumb bar. See the <a class="reference internal" href="context_variables.html#context-breadcrumb-trail"><em>context variable</em></a> or
+<a class="reference internal" href="templatetags.html#bambu_bootstrap.templatetags.bootstrap.breadcrumb_trail" title="bambu_bootstrap.templatetags.bootstrap.breadcrumb_trail"><tt class="xref py py-func docutils literal"><span class="pre">template</span> <span class="pre">tag</span></tt></a> for more information.</p>
+</div>
+<div class="section" id="bootstrap-footer-inc-html">
+<h3>bootstrap/footer.inc.html<a class="headerlink" href="#bootstrap-footer-inc-html" title="Permalink to this headline">¶</a></h3>
+<p>The page footer. By default this is a simple copyright statement using the site name and current year.</p>
+</div>
+<div class="section" id="bootstrap-messages-inc-html">
+<h3>bootstrap/messages.inc.html<a class="headerlink" href="#bootstrap-messages-inc-html" title="Permalink to this headline">¶</a></h3>
+<p>Bootstrap-themed alert boxes for messages generated by <tt class="docutils literal"><span class="pre">django.contrib.messages</span></tt>.</p>
+</div>
+<div class="section" id="bootstrap-scripts-inc-html">
+<h3>bootstrap/scripts.inc.html<a class="headerlink" href="#bootstrap-scripts-inc-html" title="Permalink to this headline">¶</a></h3>
+<p>Includes the jQuery and Bootstrap script tags. Use the <a class="reference internal" href="settings.html#settings-js-url"><em>BOOTSTRAP_JS_URL</em></a> setting
+to provide your own Bootstrap script.</p>
+</div>
+<div class="section" id="bootstrap-styles-inc-html">
+<h3>bootstrap/styles.inc.html<a class="headerlink" href="#bootstrap-styles-inc-html" title="Permalink to this headline">¶</a></h3>
+<p>Includes the Bootstrap and Font Awesome CSS link tags Use the <a class="reference internal" href="settings.html#settings-css-url"><em>BOOTSTRAP_CSS_URL</em></a>
+setting to provide your own Bootstrap theme.</p>
+</div>
+<div class="section" id="bootstrap-typekit-inc-html">
+<h3>bootstrap/typekit.inc.html<a class="headerlink" href="#bootstrap-typekit-inc-html" title="Permalink to this headline">¶</a></h3>
+<p>Includes the TypeKit script tag. See the <a class="reference internal" href="settings.html#settings-typekit-key"><em>TYPEKIT_KEY</em></a> setting.</p>
+</div>
+</div>
+<div class="section" id="search">
+<h2>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h2>
+<p>Bambu Bootstrap also works well with <a class="reference external" href="http://haystacksearch.org/">Haystack</a>, and provides a basic search
+results template.</p>
+<div class="section" id="search-search-html">
+<h3>search/search.html<a class="headerlink" href="#search-search-html" title="Permalink to this headline">¶</a></h3>
+<p>A basic search results template including a form.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Templates</a><ul>
+<li><a class="reference internal" href="#error-pages">Error pages</a><ul>
+<li><a class="reference internal" href="#html">404.html</a></li>
+<li><a class="reference internal" href="#id1">500.html</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forms">Forms</a></li>
+<li><a class="reference internal" href="#field-inc-html">field.inc.html</a></li>
+<li><a class="reference internal" href="#form-inc-html">form.inc.html</a></li>
+<li><a class="reference internal" href="#navbar">Navbar</a><ul>
+<li><a class="reference internal" href="#bootstrap-navbar-anon-inc-html">bootstrap/navbar-anon.inc.html</a></li>
+<li><a class="reference internal" href="#bootstrap-navbar-auth-inc-html">bootstrap/navbar-auth.inc.html</a></li>
+<li><a class="reference internal" href="#bootstrap-navbar-brand-inc-html">bootstrap/navbar-brand.inc.html</a></li>
+<li><a class="reference internal" href="#bootstrap-navbar-inc-html">bootstrap/navbar.inc.html</a></li>
+<li><a class="reference internal" href="#menu-inc-html">menu.inc.html</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#elements">Elements</a><ul>
+<li><a class="reference internal" href="#bootstrap-base-inc-html">bootstrap/base.inc.html</a></li>
+<li><a class="reference internal" href="#bootstrap-breadcrumb-inc-html">bootstrap/breadcrumb.inc.html</a></li>
+<li><a class="reference internal" href="#bootstrap-footer-inc-html">bootstrap/footer.inc.html</a></li>
+<li><a class="reference internal" href="#bootstrap-messages-inc-html">bootstrap/messages.inc.html</a></li>
+<li><a class="reference internal" href="#bootstrap-scripts-inc-html">bootstrap/scripts.inc.html</a></li>
+<li><a class="reference internal" href="#bootstrap-styles-inc-html">bootstrap/styles.inc.html</a></li>
+<li><a class="reference internal" href="#bootstrap-typekit-inc-html">bootstrap/typekit.inc.html</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#search">Search</a><ul>
+<li><a class="reference internal" href="#search-search-html">search/search.html</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Bambu Bootstrap</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="context_variables.html"
+                        title="next chapter">Context variables</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/templates.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="context_variables.html" title="Context variables"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Bambu Bootstrap"
+             >previous</a> |</li>
+        <li><a href="index.html">Bambu Bootstrap 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Steadman.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+{% load bootstrap %}<!DOCTYPE html>
+<html {% html_attrs %}>
+	<head{% block head_attrs %}{% endblock %}>
+		<meta charset="UTF-8" />
+		{% block title %}<title>{% bootstrap_title %}</title>{% endblock title %}
+		{% block meta_tags %}
+			{% if meta_keywords %}<meta name="keywords" content="{{ meta_keywords|join:', ' }}" />{% endif %}
+			{% if meta_description %}<meta name="description" content="{{ meta_description }}" />{% endif %}
+		{% endblock meta_tags %}
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		{% bootstrap_styles %}
+		{% typekit %}
+		
+		{% bootstrap_scripts %}
+		{% block extra_head %}{% endblock %}
+	</head>
+	
+	<body class="{% spaceless %}{% if request.user.is_authenticated%}logged-in{% else %}anonymous{% endif %} {% if popup %}popup{% endif %} {% for class in body_classes %}{{ class }} {% endfor %}{% endspaceless %}{% if request.mobile %} mobile mobile-{{ request.formfactor }}{% endif %}">
+		{% bootstrap_navbar %}
+		{% block after_header %}{% endblock after_header %}
+		
+		<div class="container" id="main-container">
+			{% block messages %}
+				{% if messages %}
+					{% include 'bootstrap/messages.inc.html' %}
+				{% endif %}
+			{% endblock messages %}
+			
+			{% block breadcrumb_trail %}{% breadcrumb_trail %}{% endblock %}
+			
+			{% block content %}
+				<div class="page-header" data-importance="2">
+					{% block page_header %}{% endblock %}
+				</div>
+				
+				<div class="row">
+					<div class="col-lg-9 col-md-8">
+						{% block form_content %}{% endblock %}
+					</div>
+					
+					<div class="col-lg-3 col-md-4">
+						{% block sidebar %}{% endblock %}
+					</div>
+				</div>
+				
+				{% block form_footer %}{% endblock %}
+			{% endblock content %}
+		</div>
+		
+		{% block pre_footer %}<hr />{% endblock pre_footer %}
+		
+		<div class="container">
+			<footer>
+				{% block footer %}
+					{% bootstrap_footer %}
+				{% endblock footer %}
+			</footer>
+		</div>
+		
+		{% block javascript %}{% endblock %}
+	</body>
+</html>

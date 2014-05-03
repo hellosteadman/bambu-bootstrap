@@ -29,12 +29,12 @@ Forms
 See the :doc:`Forms <forms>` section for more information.
 
 field.inc.html
---------------
+~~~~~~~~~~~~~~
 
 An individual field row, with error checking and handling of various different styling scenarios.
 
 form.inc.html
--------------
+~~~~~~~~~~~~~
 
 A rendered form, using the context variable ``form``. By default the form is rendered in Bootstrap's
 'vertical' style, but you can use the horizontal style by adding ``style='horizontal'`` in your include

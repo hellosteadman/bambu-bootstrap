@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Views &mdash; Bambu Bootstrap 2.1 documentation</title>
+    <title>Views &mdash; Bambu Bootstrap 2.2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.1',
+        VERSION:     '2.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Bambu Bootstrap 2.1 documentation" href="index.html" />
+    <link rel="top" title="Bambu Bootstrap 2.2 documentation" href="index.html" />
     <link rel="next" title="Forms" href="forms.html" />
     <link rel="prev" title="Context variables" href="context_variables.html" /> 
   </head>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="context_variables.html" title="Context variables"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Bambu Bootstrap 2.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Bambu Bootstrap 2.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -54,12 +54,116 @@
             
   <div class="section" id="module-bambu_bootstrap.views">
 <span id="views"></span><h1>Views<a class="headerlink" href="#module-bambu_bootstrap.views" title="Permalink to this headline">¶</a></h1>
+<p>A base view with a number of mixins are provided here, as well as a simple
+template view that provides an easy <tt class="docutils literal"><span class="pre">extra_context</span></tt> property.</p>
+<dl class="class">
+<dt id="bambu_bootstrap.views.BootstrapView">
+<em class="property">class </em><tt class="descclassname">bambu_bootstrap.views.</tt><tt class="descname">BootstrapView</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#bambu_bootstrap.views.BootstrapView" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class-based view to be rendered via a Bootstrap template, providing
+ways to setup <tt class="docutils literal"><span class="pre">&lt;body&gt;</span></tt> tag classes, formula for the <tt class="docutils literal"><span class="pre">&lt;title&gt;</span></tt> tag,
+the breadcrumb trail and a key indicating the selected main navigation item
+item.</p>
+<dl class="attribute">
+<dt id="bambu_bootstrap.views.BootstrapView.body_classes">
+<tt class="descname">body_classes</tt><em class="property"> = ()</em><a class="headerlink" href="#bambu_bootstrap.views.BootstrapView.body_classes" title="Permalink to this definition">¶</a></dt>
+<dd><p>The classes to add to the <tt class="docutils literal"><span class="pre">&lt;body&gt;</span></tt> tag</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambu_bootstrap.views.BootstrapView.breadcrumb_trail">
+<tt class="descname">breadcrumb_trail</tt><em class="property"> = ()</em><a class="headerlink" href="#bambu_bootstrap.views.BootstrapView.breadcrumb_trail" title="Permalink to this definition">¶</a></dt>
+<dd><p>An interable of tuples with the of the inner pair being the URL (or
+relative path) and the second being the &#8216;name&#8217; of the item. The first item
+in the iterable should be the start of the breadcrumb trail</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambu_bootstrap.views.BootstrapView.get_base_context">
+<tt class="descname">get_base_context</tt><big>(</big><em>request</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#bambu_bootstrap.views.BootstrapView.get_base_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets up the base context for the templated view</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambu_bootstrap.views.BootstrapView.menu_selection">
+<tt class="descname">menu_selection</tt><em class="property"> = None</em><a class="headerlink" href="#bambu_bootstrap.views.BootstrapView.menu_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>A key indicating the selected menu item</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambu_bootstrap.views.BootstrapView.title_parts">
+<tt class="descname">title_parts</tt><em class="property"> = ()</em><a class="headerlink" href="#bambu_bootstrap.views.BootstrapView.title_parts" title="Permalink to this definition">¶</a></dt>
+<dd><p>An interable of phrases that are concatonated with a beam, to form the
+<tt class="docutils literal"><span class="pre">&lt;title&gt;</span></tt> tag of a page</p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="class">
 <dt id="bambu_bootstrap.views.DirectTemplateView">
 <em class="property">class </em><tt class="descclassname">bambu_bootstrap.views.</tt><tt class="descname">DirectTemplateView</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#bambu_bootstrap.views.DirectTemplateView" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is similar to Django&#8217;s old direct template generic view. It&#8217;s handiest when used for &#8216;static&#8217;
 pages like homepages (ie: where dynamic data may come from context processors so a standard view
 isn&#8217;t needed). It supports context variables via the <tt class="docutils literal"><span class="pre">extra_context</span></tt> argument.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="bambu_bootstrap.views.FormMixin">
+<em class="property">class </em><tt class="descclassname">bambu_bootstrap.views.</tt><tt class="descname">FormMixin</tt><a class="headerlink" href="#bambu_bootstrap.views.FormMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>A view mixin that provides a form for saving data.</p>
+<dl class="attribute">
+<dt id="bambu_bootstrap.views.FormMixin.form_class">
+<tt class="descname">form_class</tt><a class="headerlink" href="#bambu_bootstrap.views.FormMixin.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of form (should inherit from <tt class="docutils literal"><span class="pre">django.forms.ModelForm</span></tt> or
+have a <tt class="docutils literal"><span class="pre">save()</span></tt> method)</p>
+<p>alias of <tt class="xref py py-class docutils literal"><span class="pre">Form</span></tt></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambu_bootstrap.views.FormMixin.get_form">
+<tt class="descname">get_form</tt><big>(</big><em>request</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#bambu_bootstrap.views.FormMixin.get_form" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiates the form</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambu_bootstrap.views.FormMixin.redirect_success">
+<tt class="descname">redirect_success</tt><big>(</big><em>request</em><big>)</big><a class="headerlink" href="#bambu_bootstrap.views.FormMixin.redirect_success" title="Permalink to this definition">¶</a></dt>
+<dd><p>Redirects back to the currently-requested URL</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambu_bootstrap.views.FormMixin.save_form">
+<tt class="descname">save_form</tt><big>(</big><em>request</em>, <em>form</em><big>)</big><a class="headerlink" href="#bambu_bootstrap.views.FormMixin.save_form" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the form data and returns the saved object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambu_bootstrap.views.FormMixin.validate_form">
+<tt class="descname">validate_form</tt><big>(</big><em>request</em>, <em>form</em><big>)</big><a class="headerlink" href="#bambu_bootstrap.views.FormMixin.validate_form" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that the form data is valid</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="bambu_bootstrap.views.MessageMixin">
+<em class="property">class </em><tt class="descclassname">bambu_bootstrap.views.</tt><tt class="descname">MessageMixin</tt><a class="headerlink" href="#bambu_bootstrap.views.MessageMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>A view mixin that provieds a simple way to implement
+<tt class="docutils literal"><span class="pre">django.contrib.messages</span></tt>. You can define messages for various labels
+(&#8216;info&#8217;, &#8216;success&#8217;, &#8216;warning&#8217;, &#8216;error&#8217;) and send them via a simple
+function.</p>
+<dl class="method">
+<dt id="bambu_bootstrap.views.MessageMixin.message">
+<tt class="descname">message</tt><big>(</big><em>request</em>, <em>key</em><big>)</big><a class="headerlink" href="#bambu_bootstrap.views.MessageMixin.message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a message to a user</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="bambu_bootstrap.views.ObjectMixin">
+<em class="property">class </em><tt class="descclassname">bambu_bootstrap.views.</tt><tt class="descname">ObjectMixin</tt><a class="headerlink" href="#bambu_bootstrap.views.ObjectMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>A view mixin that makes it easier to work with single object views, where
+the title and breadcrumb trail might be influenced by a common factor</p>
 </dd></dl>
 
 </div>
@@ -113,7 +217,7 @@ isn&#8217;t needed). It supports context variables via the <tt class="docutils l
         <li class="right" >
           <a href="context_variables.html" title="Context variables"
              >previous</a> |</li>
-        <li><a href="index.html">Bambu Bootstrap 2.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Bambu Bootstrap 2.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

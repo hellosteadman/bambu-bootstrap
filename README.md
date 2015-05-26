@@ -40,7 +40,7 @@ BOWER_INSTALLED_APPS = (
 )
 ```
 
-Remember to run `python manage.py bower install` and `python manage.py collectstatic`.
+Remember to run `python manage.py bower_install` and `python manage.py collectstatic`.
 
 ## Basic usage
 

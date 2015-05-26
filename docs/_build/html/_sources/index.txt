@@ -54,7 +54,7 @@ details on managing static files through Bower.
         'fontawesome'
     )
 
-Remember to run ``python manage.py bower install`` and
+Remember to run ``python manage.py bower_install`` and
 ``python manage.py collectstatic``.
 
 Basic usage
@@ -78,7 +78,7 @@ Find me on Twitter (@iamsteadman) or `visit my blog <http://steadman.io/>`_.
 
 .. toctree::
    :maxdepth: 1
-   
+
    templates
    context_variables
    views

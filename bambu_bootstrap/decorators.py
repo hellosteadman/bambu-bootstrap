@@ -7,21 +7,21 @@ def body_classes(func, *classes):
     Decorates a view by adding a list of class names to the ``<body>`` tag. The prefered way to use this
     is to pass in a view that returns a `TemplateResponse` object, so that the decorator can modify the
     context variable dictionary, adding a `body_classes` list, or extending it if it already exists.
-    
+
     :param func: A callable that returns an ``HttpResponse`` or ``TemplateResponse`` object
     :param classes: A list of classes to add to the ``<body>`` tag
-    
+
     Use this decorator in your URLconf like so::
-    
+
         from bambu_bootstrap.decorators import body_classes
         from testproject.myapp import views
         from django.conf.urls import patterns, url
-        
+
         urlpatterns = patterns('',
             url(r'^$', body_classes(views.home, 'homepage', 'index'))
         )
     """
-    
+
     @wraps(func)
     def wrapped_func(*args, **kwargs):
         response = func(*args, **kwargs)
@@ -36,13 +36,13 @@ def body_classes(func, *classes):
                     func.__module__, func.__name__
                 )
             )
-            
+
             content = response.content
             body_start = content.find('<body')
-            
+
             if body_start > -1:
                 body_end = content.find('>', body_start + 1)
-                
+
                 if body_end > -1:
                     body = content[body_start:body_end]
                     class_start = body.find('class="')
@@ -68,11 +68,11 @@ def body_classes(func, *classes):
                                 )
                             )
         else:
-            if not response.context_data is None:
-                body_classes = list(response.context_data.get('body_classes', []))
-            else:
+            if getattr(response, 'context_data', None) is None:
                 body_classes = []
                 response.context_data = {}
+            else:
+                body_classes = list(response.context_data.get('body_classes', []))
             
             body_classes.extend(classes)
             response.context_data['body_classes'] = body_classes

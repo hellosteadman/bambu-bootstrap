@@ -15,10 +15,10 @@ def body_classes(func, *classes):
 
         from bambu_bootstrap.decorators import body_classes
         from testproject.myapp import views
-        from django.conf.urls import patterns, url
+        from django.conf.urls import url
 
-        urlpatterns = patterns('',
-            url(r'^$', body_classes(views.home, 'homepage', 'index'))
+        urlpatterns = (
+            url(r'^$', body_classes(views.home, 'homepage', 'index')),
         )
     """
 
@@ -73,7 +73,7 @@ def body_classes(func, *classes):
                 response.context_data = {}
             else:
                 body_classes = list(response.context_data.get('body_classes', []))
-            
+
             body_classes.extend(classes)
             response.context_data['body_classes'] = body_classes
 

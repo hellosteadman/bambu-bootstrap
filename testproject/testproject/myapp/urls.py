@@ -1,7 +1,7 @@
 from bambu_bootstrap.decorators import body_classes
 from testproject.myapp import views
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
-urlpatterns = patterns('',
-    url(r'^$', body_classes(views.home, 'homepage', 'index'))
+urlpatterns = (
+    url(r'^$', body_classes(views.home, 'homepage', 'index')),
 )
